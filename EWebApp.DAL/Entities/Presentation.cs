@@ -15,5 +15,6 @@ namespace EWebApp.DAL.Entities
         public string PresentationName { get; set; }
         public string PresentationTopic { get; set; }
         public byte[] File { get; set; }
+        public User User { get; set; }
     }
 }

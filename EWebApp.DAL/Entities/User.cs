@@ -10,6 +10,7 @@ namespace EWebApp.DAL.Entities
         [Key]
         public long UserId { get; set; }
         public string USerName { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
 
     }
