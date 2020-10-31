@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EWebApp.Controllers
 {
-    public class HomeController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class HomeController : ControllerBase
     {
-        public IActionResult Index()
+        public string Index()
         {
-            return View();
+            return "Hello world";
         }
     }
 }
