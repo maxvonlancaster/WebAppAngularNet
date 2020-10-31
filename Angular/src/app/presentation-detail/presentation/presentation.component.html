@@ -1,0 +1,63 @@
+<form #form="ngForm" autocomplete="off">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-comment-alt"></i>
+        </div>
+      </div>
+      <input
+        name="PresentationName"
+        #PresentationName="ngModel"
+        [(ngModel)]="service.formData.PresentationName"
+        class="form-control"
+        placeholder="Presentation Name"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-atom"></i>
+        </div>
+      </div>
+      <input
+        name="PresentationTopic"
+        #PresentationTopic="ngModel"
+        [(ngModel)]="service.formData.PresentationTopic"
+        class="form-control"
+        placeholder="Presentation Topic"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-envelope"></i>
+        </div>
+      </div>
+      <input
+        type="file"
+        name="File"
+        #File="ngModel"
+        [(ngModel)]="service.formData.File"
+        class="form-control"
+        placeholder="Presentation Name"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit">
+      <i class="fas fa-save"></i>
+      Submit
+    </button>
+  </div>
+</form>

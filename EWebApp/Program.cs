@@ -23,4 +23,10 @@ namespace EWebApp
                     webBuilder.UseStartup<Startup>();
                 });
     }
+
+    // To create angular app: ng new Angular
+    // to run it: ng serve --o
+    // to generate a component: ng g c component-name
+    // to create service file inside shared folder: ng g s shared/presentation
+    // to generate a class: ng g cl
 }

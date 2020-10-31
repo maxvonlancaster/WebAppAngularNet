@@ -24,11 +24,12 @@ namespace EWebApp.Controllers
         }
 
         // GET: api/Presentations
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Presentation>>> GetPresentations()
-        //{
-        //    return await _presentationService.GetPresentations(0, 10);
-        //}
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Presentation>>> GetPresentations()
+        {
+            var presentations = await _presentationService.GetPresentations(0, 10);
+            return new JsonResult(presentations);
+        }
 
         // GET: api/Presentations/5
         [HttpGet("{id}")]
@@ -92,10 +93,5 @@ namespace EWebApp.Controllers
                 return NotFound(ex.Message);
             }
         }
-
-        //private bool PresentationExists(long id)
-        //{
-        //    return _context.Presentations.Any(e => e.PresentationId == id);
-        //}
     }
 }
