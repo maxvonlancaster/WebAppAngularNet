@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using EWebApp.BLL.Interfaces;
+using EWebApp.BLL.Services;
 
 namespace EWebApp
 {
@@ -29,6 +31,7 @@ namespace EWebApp
             services.AddControllers();
 
             services.AddDbContext<PresentationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IPresentationService, PresentationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EWebApp.DAL.Context;
 using EWebApp.DAL.Entities;
+using EWebApp.BLL.Interfaces;
+using EWebApp.BLL.Exceptions;
 
 namespace EWebApp.Controllers
 {
@@ -14,32 +16,33 @@ namespace EWebApp.Controllers
     [ApiController]
     public class PresentationsController : ControllerBase
     {
-        private readonly PresentationContext _context;
+        private readonly IPresentationService _presentationService;
 
-        public PresentationsController(PresentationContext context)
+        public PresentationsController(IPresentationService presentationService)
         {
-            _context = context;
+            _presentationService = presentationService;
         }
 
         // GET: api/Presentations
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Presentation>>> GetPresentations()
-        {
-            return await _context.Presentations.ToListAsync();
-        }
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Presentation>>> GetPresentations()
+        //{
+        //    return await _presentationService.GetPresentations(0, 10);
+        //}
 
         // GET: api/Presentations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Presentation>> GetPresentation(long id)
         {
-            var presentation = await _context.Presentations.FindAsync(id);
-
-            if (presentation == null)
+            try
             {
-                return NotFound();
+                var presentation = await _presentationService.GetPresentation(id);
+                return presentation;
             }
-
-            return presentation;
+            catch (ItemNotFoundEsception ex) 
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         // PUT: api/Presentations/5
@@ -48,27 +51,17 @@ namespace EWebApp.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPresentation(long id, Presentation presentation)
         {
-            if (id != presentation.PresentationId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(presentation).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                await _presentationService.PutPresentation(id, presentation);
             }
-            catch (DbUpdateConcurrencyException)
+            catch (BadRequestException bex)
             {
-                if (!PresentationExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest(bex.Message);
+            }
+            catch (ItemNotFoundEsception iex) 
+            {
+                return NotFound(iex.Message);
             }
 
             return NoContent();
@@ -80,8 +73,7 @@ namespace EWebApp.Controllers
         [HttpPost]
         public async Task<ActionResult<Presentation>> PostPresentation(Presentation presentation)
         {
-            _context.Presentations.Add(presentation);
-            await _context.SaveChangesAsync();
+            await _presentationService.PostPresentation(presentation);
 
             return CreatedAtAction("GetPresentation", new { id = presentation.PresentationId }, presentation);
         }
@@ -90,21 +82,20 @@ namespace EWebApp.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Presentation>> DeletePresentation(long id)
         {
-            var presentation = await _context.Presentations.FindAsync(id);
-            if (presentation == null)
+            try
             {
-                return NotFound();
+                var presentation = await _presentationService.DeletePresentation(id);
+                return presentation;
             }
-
-            _context.Presentations.Remove(presentation);
-            await _context.SaveChangesAsync();
-
-            return presentation;
+            catch (ItemNotFoundEsception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
-        private bool PresentationExists(long id)
-        {
-            return _context.Presentations.Any(e => e.PresentationId == id);
-        }
+        //private bool PresentationExists(long id)
+        //{
+        //    return _context.Presentations.Any(e => e.PresentationId == id);
+        //}
     }
 }
