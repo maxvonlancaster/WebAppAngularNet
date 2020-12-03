@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppPlayground.Playground;
+using System;
 
 namespace ConsoleAppPlayground
 {
@@ -7,6 +8,9 @@ namespace ConsoleAppPlayground
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            var service = new Reactive();
+            service.ReactiveProgramming();
         }
     }
 }
