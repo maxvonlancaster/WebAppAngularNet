@@ -6,12 +6,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class PresentationService {
-  formData: Presentation;
-  readonly rootUrl = 'http://localhost:50287';
+  formData: Presentation = {
+    PresentationId : null,
+    PresentationName : null,
+    PresentationTopic : null,
+    File : null,
+    User : null 
+  };
+  readonly rootUrl = 'http://localhost:50287/api';
 
   constructor(private http:HttpClient) {}
 
   postPresentation(formData:Presentation){
-    this.http.post(this.rootUrl, formData);
+    console.log(formData);
+    return this.http.post(this.rootUrl + '/Presentations', formData);
   }
 }

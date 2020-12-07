@@ -21,11 +21,18 @@ export class PresentationComponent implements OnInit {
       PresentationName : '',
       PresentationTopic : '',
       User : 0,
-      File : {}
+      File : null
     };
   }
 
   onSubmit(form : NgForm){
-
+    this.service.postPresentation(form.value).subscribe(
+      res => {
+        this.resetFrom(form);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

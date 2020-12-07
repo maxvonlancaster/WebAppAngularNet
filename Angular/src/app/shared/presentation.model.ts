@@ -2,6 +2,6 @@ export class Presentation {
   PresentationId: number;
   PresentationName: string;
   PresentationTopic: string;
-  File: object;
+  File: File;
   User: number;
 }

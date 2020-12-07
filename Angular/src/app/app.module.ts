@@ -9,13 +9,12 @@ import { PresentationComponent } from './presentation-detail/presentation/presen
 import { PresentationListComponent } from './presentation-detail/presentation-list/presentation-list.component';
 import { PresentationService } from './shared/presentation.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     PresentationDetailComponent,
     PresentationComponent,
-    PresentationListComponent,
+    PresentationListComponent
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [PresentationService],
