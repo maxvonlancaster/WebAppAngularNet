@@ -24,6 +24,7 @@ namespace EWebApp
                 });
     }
 
+    // 58:00
     // To create angular app: ng new Angular
     // to run it: ng serve --o
     // to generate a component: ng g c component-name

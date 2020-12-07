@@ -4,7 +4,8 @@ using System.Text;
 
 namespace ConsoleAppPlayground.Patterns
 {
-    class Singleton
+    public class Singleton
     {
+
     }
 }
