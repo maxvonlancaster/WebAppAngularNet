@@ -25,6 +25,13 @@ export class PresentationComponent implements OnInit {
     };
   }
 
+  onFileChange(event){
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.service.formData.File = file;
+    }
+  }
+
   onSubmit(form : NgForm){
     this.service.postPresentation(form.value).subscribe(
       res => {

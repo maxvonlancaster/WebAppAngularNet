@@ -18,6 +18,7 @@ export class PresentationService {
   constructor(private http:HttpClient) {}
 
   postPresentation(formData:Presentation){
+    formData.File = <File>this.formData.File;
     console.log(formData);
     return this.http.post(this.rootUrl + '/Presentations', formData);
   }

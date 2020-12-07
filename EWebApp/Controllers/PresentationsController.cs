@@ -9,6 +9,8 @@ using EWebApp.DAL.Context;
 using EWebApp.DAL.Entities;
 using EWebApp.BLL.Interfaces;
 using EWebApp.BLL.Exceptions;
+using EWebApp.Models;
+using System.IO;
 
 namespace EWebApp.Controllers
 {
@@ -72,8 +74,21 @@ namespace EWebApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Presentation>> PostPresentation(Presentation presentation)
+        public async Task<ActionResult<Presentation>> PostPresentation([FromBody]PresentationModel presentationModel)
         {
+            Presentation presentation = new Presentation()
+            {
+                PresentationName = presentationModel.PresentationName,
+                PresentationTopic = presentationModel.PresentationTopic
+            };
+
+            byte[] fileData = null;
+            using (var binaryReader = new BinaryReader(presentationModel.File.OpenReadStream())) 
+            {
+                fileData = binaryReader.ReadBytes((int)presentationModel.File.Length);
+            }
+            presentation.File = fileData;
+
             await _presentationService.PostPresentation(presentation);
 
             return CreatedAtAction("GetPresentation", new { id = presentation.PresentationId }, presentation);

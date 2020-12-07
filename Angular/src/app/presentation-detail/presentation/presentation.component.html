@@ -45,10 +45,9 @@
       <input
         type="file"
         name="File"
-        #File="ngModel"
-        [(ngModel)]="service.formData.File"
         class="form-control"
         placeholder="Presentation Name"
+        (change)="onFileChange($event)"
         required
       />
     </div>
