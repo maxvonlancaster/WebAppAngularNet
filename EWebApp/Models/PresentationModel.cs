@@ -10,6 +10,6 @@ namespace EWebApp.Models
     {
         public string PresentationName { get; set; }
         public string PresentationTopic { get; set; }
-        public FormFile File { get; set; }
+        public IFormFile File { get; set; }
     }
 }

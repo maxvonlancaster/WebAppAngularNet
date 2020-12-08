@@ -74,7 +74,7 @@ namespace EWebApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Presentation>> PostPresentation([FromBody]PresentationModel presentationModel)
+        public async Task<ActionResult<Presentation>> PostPresentation([FromForm]PresentationModel presentationModel)
         {
             Presentation presentation = new Presentation()
             {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { PresentationService } from 'src/app/shared/presentation.service';
 
 @Component({
@@ -12,9 +12,9 @@ export class PresentationComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  resetFrom(form? : NgForm){
+  resetFrom(form? : FormGroup){
     if(form != null){
-      form.resetForm();
+      form.reset();
     }
     this.service.formData = {
       PresentationId : 0,
@@ -32,7 +32,7 @@ export class PresentationComponent implements OnInit {
     }
   }
 
-  onSubmit(form : NgForm){
+  onSubmit(form : FormGroup){
     this.service.postPresentation(form.value).subscribe(
       res => {
         this.resetFrom(form);

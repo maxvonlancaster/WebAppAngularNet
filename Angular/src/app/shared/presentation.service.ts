@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Presentation } from './presentation.model';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms'
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,12 @@ export class PresentationService {
   postPresentation(formData:Presentation){
     formData.File = <File>this.formData.File;
     console.log(formData);
-    return this.http.post(this.rootUrl + '/Presentations', formData);
+
+    const data = new FormData();
+    data.append('PresentationName', formData.PresentationName);
+    data.append('PresentationTopic', formData.PresentationTopic);
+    data.append('File', formData.File);
+
+    return this.http.post(this.rootUrl + '/Presentations', data);
   }
 }
