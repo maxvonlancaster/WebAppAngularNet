@@ -29,4 +29,8 @@ export class PresentationService {
 
     return this.http.post(this.rootUrl + '/Presentations', data);
   }
+
+  refreshList(){
+    
+  }
 }

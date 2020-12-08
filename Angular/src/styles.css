@@ -6,3 +6,7 @@ input.ng-touched.ng-invalid {
 input.ng-valid {
   border-color: #28a745;
 }
+
+#toastr-container > div {
+  opacity: 1;
+}

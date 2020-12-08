@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { PresentationService } from 'src/app/shared/presentation.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { PresentationService } from 'src/app/shared/presentation.service';
   styleUrls: ['./presentation.component.css'],
 })
 export class PresentationComponent implements OnInit {
-  constructor(public service: PresentationService) {}
+  constructor(public service: PresentationService,
+    private toastr: ToastrService) {}
 
   ngOnInit(): void {}
 
@@ -36,6 +38,7 @@ export class PresentationComponent implements OnInit {
     this.service.postPresentation(form.value).subscribe(
       res => {
         this.resetFrom(form);
+        this.toastr.success('Submitted successfully', 'Presentation Register')
       },
       err => {
         console.log(err);
