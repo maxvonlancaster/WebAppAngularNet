@@ -15,6 +15,7 @@ export class PresentationService {
     User : null 
   };
   readonly rootUrl = 'http://localhost:50287/api';
+  list: Presentation[];
 
   constructor(private http:HttpClient) {}
 
@@ -31,6 +32,8 @@ export class PresentationService {
   }
 
   refreshList(){
-    
+    this.http.get(this.rootUrl + '/Presentations')
+    .toPromise()
+    .then(res => this.list = res as Presentation[]);
   }
 }
