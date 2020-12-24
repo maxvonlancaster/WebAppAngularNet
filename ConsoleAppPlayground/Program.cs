@@ -9,8 +9,8 @@ namespace ConsoleAppPlayground
         {
             Console.WriteLine("Hello World!");
 
-            var service = new Reactive();
-            service.ReactiveProgramming();
+            var service = new OopPlayground();
+            service.VirtualUsage();
         }
     }
 }
