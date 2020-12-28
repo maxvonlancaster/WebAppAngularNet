@@ -1,4 +1,5 @@
-﻿using ConsoleAppPlayground.Playground;
+﻿using ConsoleAppPlayground.Parallelism;
+using ConsoleAppPlayground.Playground;
 using System;
 
 namespace ConsoleAppPlayground
@@ -9,8 +10,8 @@ namespace ConsoleAppPlayground
         {
             Console.WriteLine("Hello World!");
 
-            var service = new OopPlayground();
-            service.VirtualUsage();
+            var service = new AsyncAwait();
+            service.Main();
         }
     }
 }
