@@ -1,4 +1,5 @@
-﻿using ConsoleAppPlayground.Parallelism;
+﻿using ConsoleAppPlayground.Features;
+using ConsoleAppPlayground.Parallelism;
 using ConsoleAppPlayground.Playground;
 using System;
 
@@ -8,9 +9,7 @@ namespace ConsoleAppPlayground
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-            var service = new AsyncAwait();
+            var service = new Delegates();
             service.Main();
         }
     }
