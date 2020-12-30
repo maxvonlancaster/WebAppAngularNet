@@ -36,7 +36,7 @@ namespace ConsoleAppPlayground.Features
             UseDelegate(calc1); // delegates can be params of the methopd;
 
             // Anonymous method
-            Calc handler = delegate (int i, int j,string s) 
+            Calc handler = delegate (int i, int j, string s) 
             {
                 return i + 2 * j; 
             };
@@ -52,9 +52,18 @@ namespace ConsoleAppPlayground.Features
             MyEvent += handler1;
             MyEvent.Invoke("hello");
 
-            // Action, Predicate, Func
-
-
+            // Action, Predicate, Func - built-in delegates, used in different situations
+            Action<string> action = ShowMessage; // action takes in parameters and returns void
+            Action<string, int> action1 = ShowMessageInt;
+            action1("sample", 10);
+            Predicate<int> isPositive = delegate (int i)
+            {
+                return i > 0; // Predicate returns bool, used for checking
+            }; 
+            Func<int, int, string> addToString = delegate (int i, int j)
+            {
+                return (i + j).ToString(); // Func - returns result and takes parameters 
+            };
         }
 
         public int Add(int x, int y, string s)  { Console.WriteLine(s + "Add"); return x + y; }
@@ -62,5 +71,6 @@ namespace ConsoleAppPlayground.Features
         public int Subst(int x, int y, string s) { Console.WriteLine(s + "Subst"); return x - y; }
         public void UseDelegate(Calc calc) { calc?.Invoke(1, 1, "UseDelegate"); }
         public void ShowMessage(string s) { Console.WriteLine("Event happened: " + s); }
+        public void ShowMessageInt(string s, int i) { Console.WriteLine("Event happened: " + s + i.ToString()); }
     }
 }
