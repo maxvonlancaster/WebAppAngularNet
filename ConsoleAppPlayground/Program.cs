@@ -9,7 +9,7 @@ namespace ConsoleAppPlayground
     {
         static void Main(string[] args)
         {
-            var service = new Delegates();
+            var service = new Immutable();
             service.Main();
         }
     }

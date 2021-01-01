@@ -9,7 +9,18 @@ namespace ConsoleAppPlayground.Playground
     {
         public void Main() 
         {
-        
+            List<Item> items = new List<Item>() 
+            {
+                new Item() { Id = 1, Name = "Toothpaste" },
+                new Item() { Id = 2, Name = "Shampoo" }
+            };
+
+            MyImmutableClass myImmutableClass = new MyImmutableClass(items);
+
+            items.Add( new Item() { Id = 3, Name = "Hairbrush" });
+            var itemsNew = myImmutableClass.Items;
+
+            //myImmutableClass.Items = items; -> can not be assigned to - it is readonly
         }
     }
 
