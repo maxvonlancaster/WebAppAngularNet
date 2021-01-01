@@ -18,7 +18,7 @@ namespace ConsoleAppPlayground.Playground
             MyImmutableClass myImmutableClass = new MyImmutableClass(items);
 
             items.Add( new Item() { Id = 3, Name = "Hairbrush" });
-            var itemsNew = myImmutableClass.Items;
+            var itemsNew = myImmutableClass.Items; // 2 items 
 
             //myImmutableClass.Items = items; -> can not be assigned to - it is readonly
         }
@@ -35,7 +35,7 @@ namespace ConsoleAppPlayground.Playground
 
         public MyImmutableClass(List<Item> items)
         {
-            myItems = items.AsReadOnly();
+            myItems = (new List<Item>(items)).AsReadOnly(); // copying using the constructor 
         }
     }
 
