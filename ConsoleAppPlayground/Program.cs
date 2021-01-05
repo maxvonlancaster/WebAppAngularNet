@@ -9,7 +9,7 @@ namespace ConsoleAppPlayground
     {
         static void Main(string[] args)
         {
-            var service = new Immutable();
+            var service = new ConcurrentCollections();
             service.Main();
         }
     }
