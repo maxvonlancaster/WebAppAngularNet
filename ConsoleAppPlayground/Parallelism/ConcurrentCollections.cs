@@ -11,7 +11,7 @@ namespace ConsoleAppPlayground.Parallelism
     {
         public void Main() 
         {
-            ConcurrentQueueUsage();
+            SendingMessages();
         }
 
         // Usage of ConcurrentQueue
@@ -34,6 +34,35 @@ namespace ConsoleAppPlayground.Parallelism
             };
             Parallel.Invoke(action, action, action, action);
             Console.WriteLine("Total sum: {0}", outerSum);
+        }
+
+        // Sending messages between threads 
+        public void SendingMessages() 
+        {
+            ConcurrentQueue<string> cq = new ConcurrentQueue<string>();
+            Action sender = () =>
+            {
+                for (int i = 0; i < 100; i++) 
+                {
+                    string message = "Message number " + i.ToString();
+                    cq.Enqueue(message);
+                    Thread.Sleep(100);
+                }
+                cq.Enqueue("EOL");
+            };
+
+            Action receiver = () =>
+            {
+                string message = "";
+                while (message != "EOL") 
+                {
+                    cq.TryDequeue(out message);
+                    Console.WriteLine(message);
+                    Thread.Sleep(100);
+                }
+            };
+            Parallel.Invoke(sender, receiver);
+
         }
     }
 }
