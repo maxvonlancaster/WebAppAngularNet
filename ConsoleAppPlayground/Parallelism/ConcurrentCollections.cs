@@ -50,7 +50,6 @@ namespace ConsoleAppPlayground.Parallelism
                 }
                 cq.Enqueue("EOL");
             };
-
             Action receiver = () =>
             {
                 string message = "";
@@ -62,7 +61,12 @@ namespace ConsoleAppPlayground.Parallelism
                 }
             };
             Parallel.Invoke(sender, receiver);
+        }
 
+        // ConcurrentDictionary usage
+        public void ConcurrentDictionaryUsage() 
+        {
+        
         }
     }
 }
