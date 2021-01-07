@@ -11,7 +11,7 @@ namespace ConsoleAppPlayground.Parallelism
     {
         public void Main() 
         {
-            SendingMessages();
+            ConcurrentDictionaryUsage();
         }
 
         // Usage of ConcurrentQueue
@@ -66,7 +66,23 @@ namespace ConsoleAppPlayground.Parallelism
         // ConcurrentDictionary usage
         public void ConcurrentDictionaryUsage() 
         {
-        
+            ConcurrentDictionary<int, string> cd = new ConcurrentDictionary<int, string>();
+            Action action = () =>
+            {
+                Random random = new Random();
+                for (int i = 0; i < 100; i++)
+                {
+                    cd.TryAdd(i, (i*i).ToString());
+                    Thread.Sleep(random.Next(0, 200));
+                }
+            };
+            Parallel.Invoke(action, action, action);
+
+            foreach (var elem in cd) 
+            {
+                Console.WriteLine(elem.Key + " to the power 2 = " + elem.Value);
+            }
+
         }
     }
 }
