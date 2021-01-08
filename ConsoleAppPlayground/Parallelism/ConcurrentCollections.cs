@@ -84,5 +84,16 @@ namespace ConsoleAppPlayground.Parallelism
             }
 
         }
+
+        // ConcurrentBag usage
+        public void ConcurrentBagUsage() 
+        {
+            ConcurrentBag<int> cb = new ConcurrentBag<int>();
+
+            Action action = () =>
+            {
+                Random random = new Random();
+            };
+        }
     }
 }
