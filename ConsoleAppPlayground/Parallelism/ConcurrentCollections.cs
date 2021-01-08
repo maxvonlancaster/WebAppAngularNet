@@ -70,15 +70,20 @@ namespace ConsoleAppPlayground.Parallelism
             Action action = () =>
             {
                 Random random = new Random();
-                for (int i = 0; i < 100; i++)
+                int n = 0;
+                for (int i = 0; i < 10000; i++)
                 {
-                    cd.TryAdd(i, (i*i).ToString());
-                    Thread.Sleep(random.Next(0, 200));
+                    if (cd.TryAdd(i, (i * i).ToString()))
+                    {
+                        n++;
+                    };
+                    Thread.Sleep(random.Next(0, 3));
                 }
+                Console.WriteLine("End of thread: " + n);
             };
             Parallel.Invoke(action, action, action);
 
-            foreach (var elem in cd) 
+            foreach (var elem in cd)
             {
                 Console.WriteLine(elem.Key + " to the power 2 = " + elem.Value);
             }
@@ -93,6 +98,11 @@ namespace ConsoleAppPlayground.Parallelism
             Action action = () =>
             {
                 Random random = new Random();
+                int n;
+                for (int i = 0; i < 10000; i++) 
+                {
+                    //if cb.Tr
+                }
             };
         }
     }
