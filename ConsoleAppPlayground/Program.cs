@@ -9,7 +9,7 @@ namespace ConsoleAppPlayground
     {
         static void Main(string[] args)
         {
-            var service = new ConcurrentCollections();
+            var service = new MultiThreading();
             service.Main();
         }
     }
