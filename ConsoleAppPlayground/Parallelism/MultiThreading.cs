@@ -13,6 +13,12 @@ namespace ConsoleAppPlayground.Parallelism
             //lock (locking)  --> structure is not a reference type as required by locking 
             //{
             //}
+            
+        }
+
+
+        public void TwoParallelThreads() 
+        {
             Thread threadOne = new Thread(MethodOne);
             Thread threadTwo = new Thread(MethodTwo);
             threadOne.Start();
