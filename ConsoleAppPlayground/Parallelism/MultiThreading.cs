@@ -11,8 +11,7 @@ namespace ConsoleAppPlayground.Parallelism
         {
             var locking = new Structure() { id = 1};
             //lock (locking)  --> structure is not a reference type as required by locking 
-            //{
-            //}
+            //{ }
             
         }
 
@@ -42,7 +41,7 @@ namespace ConsoleAppPlayground.Parallelism
             Random random = new Random();
             for (int i = 0; i < 100; i++)
             {
-                Thread.Sleep(random.Next(0, 10));
+                Thread.Sleep(random.Next(0, 10)); 
                 Console.WriteLine("MethodTwo: " + i);
             }
         }
