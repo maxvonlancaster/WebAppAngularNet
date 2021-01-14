@@ -9,7 +9,7 @@ namespace ConsoleAppPlayground
     {
         static void Main(string[] args)
         {
-            var service = new MultiThreading();
+            var service = new ActionBlockUsage();
             service.Main();
         }
     }
