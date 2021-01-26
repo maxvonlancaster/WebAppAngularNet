@@ -21,7 +21,6 @@ export class PresentationService {
 
   postPresentation(formData:Presentation){
     formData.File = <File>this.formData.File;
-    console.log(formData);
 
     const data = new FormData();
     data.append('PresentationName', formData.PresentationName);
@@ -31,9 +30,27 @@ export class PresentationService {
     return this.http.post(this.rootUrl + '/Presentations', data);
   }
 
+  putPresentation(formData:Presentation){
+    formData.File = <File>this.formData.File;
+
+    const data = new FormData();
+    data.append('PresentationId', formData.PresentationId.toString());
+    data.append('PresentationName', formData.PresentationName);
+    data.append('PresentationTopic', formData.PresentationTopic);
+    data.append('File', formData.File);
+
+    return this.http.put(this.rootUrl + '/Presentations/' + formData.PresentationId.toString(), data);
+  }
+
+  deletePresentation(id: number){
+    return this.http.delete(this.rootUrl + '/Presentations/' + id)
+  }
+
   refreshList(){
-    this.http.get(this.rootUrl + '/Presentations')
+    this.http.get<Presentation[]>(this.rootUrl + '/Presentations')
     .toPromise()
-    .then(res => this.list = res as Presentation[]);
+    .then(res => {
+      this.list = res;
+    });
   }
 }

@@ -1,6 +1,11 @@
 <table class="table table-hover">
     <tr *ngFor='let pd of service.list'>
-        <td>{{pd.PresentationName}}</td>
-        <td>{{pd.PresentstionTopic}}</td>
+        <td (click)="populateForm(pd)">{{pd.presentationName}}</td>
+        <td (click)="populateForm(pd)">{{pd.presentationTopic}}</td>
+        <td (click)="onDelete(pd.presentationId)">
+            <i class="far fa-trash-alt fa-lg text-danger">
+
+            </i>
+        </td>
     </tr>
 </table>

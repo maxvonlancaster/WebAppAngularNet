@@ -35,14 +35,51 @@ export class PresentationComponent implements OnInit {
   }
 
   onSubmit(form : FormGroup){
-    this.service.postPresentation(form.value).subscribe(
+    // console.log(form.value);
+    if(this.service.formData.PresentationId == 0 || this.service.formData.PresentationId == null){
+      console.log(this.service.formData);
+      this.postPresentation(form);
+    }
+    else{
+      console.log(this.service.formData);
+      this.putPresentation(form);
+    }
+    
+    // this.service.postPresentation(form.value).subscribe(
+    //   res => {
+    //     this.resetFrom(form);
+    //     this.toastr.success('Submitted successfully', 'Presentation Register')
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
+  }
+
+  putPresentation(form : FormGroup){
+    this.service.putPresentation(form.value).subscribe(
       res => {
         this.resetFrom(form);
-        this.toastr.success('Submitted successfully', 'Presentation Register')
+        this.toastr.info('Updated successfully', 'Presentation Register');
+        this.service.refreshList();
       },
       err => {
         console.log(err);
       }
     );
   }
+
+  postPresentation(form : FormGroup){
+    this.service.postPresentation(form.value).subscribe(
+      res => {
+        this.resetFrom(form);
+        this.toastr.success('Submitted successfully', 'Presentation Register');
+        this.service.refreshList();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
 }

@@ -17,6 +17,24 @@
     </div>
   </div>
 
+  <div class="form-group" style="display: none;">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-atom"></i>
+        </div>
+      </div>
+      <input
+        name="PresentationId"
+        #PresentationId="ngModel"
+        [(ngModel)]="service.formData.PresentationId"
+        class="form-control"
+        placeholder="Presentation Id"
+        required
+      />
+    </div>
+  </div>
+
   <div class="form-group">
     <div class="input-group">
       <div class="input-group-prepend">

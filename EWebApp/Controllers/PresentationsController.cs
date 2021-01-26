@@ -52,10 +52,24 @@ namespace EWebApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPresentation(long id, Presentation presentation)
+        public async Task<IActionResult> PutPresentation(long id, [FromForm] PresentationModel presentationModel)
         {
             try
             {
+                Presentation presentation = new Presentation()
+                {
+                    PresentationId = presentationModel.PresentationId,
+                    PresentationName = presentationModel.PresentationName,
+                    PresentationTopic = presentationModel.PresentationTopic
+                };
+
+                byte[] fileData = null;
+                using (var binaryReader = new BinaryReader(presentationModel.File.OpenReadStream()))
+                {
+                    fileData = binaryReader.ReadBytes((int)presentationModel.File.Length);
+                }
+                presentation.File = fileData;
+
                 await _presentationService.PutPresentation(id, presentation);
             }
             catch (BadRequestException bex)
@@ -78,6 +92,7 @@ namespace EWebApp.Controllers
         {
             Presentation presentation = new Presentation()
             {
+                PresentationId = presentationModel.PresentationId,
                 PresentationName = presentationModel.PresentationName,
                 PresentationTopic = presentationModel.PresentationTopic
             };

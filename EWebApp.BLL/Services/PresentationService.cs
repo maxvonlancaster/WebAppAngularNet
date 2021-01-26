@@ -48,12 +48,26 @@ namespace EWebApp.BLL.Services
 
         public async Task<IEnumerable<Presentation>> GetPresentations(int offset, int count)
         {
-            return await _context.Presentations.Skip(offset).Take(count).ToListAsync();
+            return await _context.Presentations.Skip(offset).Take(count)
+                .Select(p => new Presentation 
+                { 
+                    PresentationId = p.PresentationId, 
+                    PresentationName = p.PresentationName, 
+                    PresentationTopic = p.PresentationTopic 
+                })
+                .ToListAsync();
         }
 
         public async Task PostPresentation(Presentation presentation)
         {
-            _context.Presentations.Add(presentation);
+            if (presentation.PresentationId == 0)
+            {
+                _context.Presentations.Add(presentation);
+            }
+            else 
+            {
+                _context.Presentations.Update(presentation);
+            }
             await _context.SaveChangesAsync();
         }
 
