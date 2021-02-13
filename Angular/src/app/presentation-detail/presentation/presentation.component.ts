@@ -35,7 +35,6 @@ export class PresentationComponent implements OnInit {
   }
 
   onSubmit(form : FormGroup){
-    // console.log(form.value);
     if(this.service.formData.PresentationId == 0 || this.service.formData.PresentationId == null){
       console.log(this.service.formData);
       this.postPresentation(form);

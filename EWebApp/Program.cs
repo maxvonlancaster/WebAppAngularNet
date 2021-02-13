@@ -32,11 +32,11 @@ namespace EWebApp
 
 
     // TODO:
-    // 1. Auth and authoris add
-    // 2. Angular multipage 
-    // 3. Presentation streaming
-    // 4. File display (or download)
-    // 5. Tokens, jwt
-    // 6. 
+    // 1. Auth and authoris add 
+    // 2. Angular multipage +
+    // 3. Presentation streaming 
+    // 4. File display (or download) 
+    // 5. Tokens, jwt 
+    // 6. Clear form on click 
     // 7. 
 }

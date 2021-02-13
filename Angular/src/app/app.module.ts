@@ -11,23 +11,27 @@ import { PresentationService } from './shared/presentation.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PresentationDetailComponent,
     PresentationComponent,
-    PresentationListComponent
+    PresentationListComponent,
+    DashboardComponent
   ],
   imports: [
-    BrowserModule, 
-    FormsModule, 
-    ReactiveFormsModule, 
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [PresentationService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
