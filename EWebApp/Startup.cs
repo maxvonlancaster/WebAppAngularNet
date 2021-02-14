@@ -32,6 +32,7 @@ namespace EWebApp
 
             services.AddDbContext<PresentationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IPresentationService, PresentationService>();
+            services.AddScoped<IAccountService, AccountService>();
 
             services.AddCors();
         }
