@@ -10,6 +10,8 @@ namespace EWebApp.BLL.Interfaces
     {
         Task AddUser(User user);
         Task<User> GetUserByEmail(string email);
-
+        Task<User> GetUserByLogin(string email, string password);
+        Task<List<User>> GetUsers(int skip, int take);
+        Task DeleteUser(string email);
     }
 }

@@ -7,5 +7,11 @@ namespace EWebApp.BLL.Services
 {
     public class StreamingService: IStreamingService
     {
+        private IPresentationService _presentationService;
+
+        public StreamingService(IPresentationService presentationService)
+        {
+            _presentationService = presentationService;
+        }
     }
 }

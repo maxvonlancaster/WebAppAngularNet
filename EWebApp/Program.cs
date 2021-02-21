@@ -38,5 +38,6 @@ namespace EWebApp
     // 4. File display (or download) 
     // 5. Tokens, jwt 
     // 6. Clear form on click 
-    // 7. 
+    // 7. Look up auth in angular 
+    // 8. 
 }

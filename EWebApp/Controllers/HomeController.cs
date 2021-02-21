@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EWebApp.Controllers
@@ -10,6 +11,7 @@ namespace EWebApp.Controllers
     [Route("[controller]")]
     public class HomeController : ControllerBase
     {
+        [Authorize]
         public string Index()
         {
             return "Hello world";
