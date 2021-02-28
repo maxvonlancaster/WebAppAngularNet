@@ -5,7 +5,7 @@ import { PresentationDetailComponent } from '../presentation-detail/presentation
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'Presentations',
     component: PresentationDetailComponent,
   },
 ];

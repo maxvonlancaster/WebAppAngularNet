@@ -14,7 +14,7 @@ using System.IO;
 
 namespace EWebApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class PresentationsController : ControllerBase
     {
@@ -23,6 +23,11 @@ namespace EWebApp.Controllers
         public PresentationsController(IPresentationService presentationService)
         {
             _presentationService = presentationService;
+        }
+
+        public void Index()
+        {
+            return ;
         }
 
         // GET: api/Presentations
