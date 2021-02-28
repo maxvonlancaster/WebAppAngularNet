@@ -1,4 +1,5 @@
 ﻿using ConsoleAppPlayground.Features;
+using ConsoleAppPlayground.Js;
 using ConsoleAppPlayground.Parallelism;
 using ConsoleAppPlayground.Playground;
 using System;
@@ -9,7 +10,7 @@ namespace ConsoleAppPlayground
     {
         static void Main(string[] args)
         {
-            var service = new ActionBlockUsage();
+            var service = new JsCompiler();
             service.Main();
         }
     }

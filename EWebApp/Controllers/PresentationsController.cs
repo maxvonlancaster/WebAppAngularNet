@@ -11,10 +11,11 @@ using EWebApp.BLL.Interfaces;
 using EWebApp.BLL.Exceptions;
 using EWebApp.Models;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EWebApp.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class PresentationsController : ControllerBase
     {

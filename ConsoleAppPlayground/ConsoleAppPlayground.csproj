@@ -7,6 +7,9 @@
 
   <ItemGroup>
     <PackageReference Include="AWSSDK.Core" Version="3.5.1.59" />
+    <PackageReference Include="FSharp.Core" Version="4.0.0.1" />
+    <PackageReference Include="IronJS" Version="0.2.0.1" />
+    <PackageReference Include="IronJS.Core" Version="0.2.0.1" />
     <PackageReference Include="System.Reactive" Version="5.0.0" />
   </ItemGroup>
 
