@@ -7,13 +7,13 @@ namespace ConsoleAppPlayground.Playground
 {
     public class Reactive
     {
-        public void ReactiveProgramming() 
+        public void Main() 
         {
             // subscription 
             ISubject<StatusChange> statChange = new Subject<StatusChange>();
-            statChange.Subscribe(sc => Console.WriteLine(sc.OrderStatus)); // lambda to do when changes in order
+            statChange.Subscribe(sc => Console.WriteLine("Reaction: " + sc.OrderStatus)); // lambda to do when changes in order
 
-            statChange.OnNext(new StatusChange() { OrderId = 1, OrderStatus = "New"}) ;
+            statChange.OnNext(new StatusChange() { OrderId = 1, OrderStatus = "New"}) ; // logs Reaction: New
 
         }
     }

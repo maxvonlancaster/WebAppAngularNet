@@ -10,7 +10,7 @@ namespace ConsoleAppPlayground
     {
         static void Main(string[] args)
         {
-            var service = new JsCompiler();
+            var service = new Reactive();
             service.Main();
         }
     }

@@ -38,7 +38,7 @@ namespace ConsoleAppPlayground.Playground
     {
         public override void Invoke()
         {
-            //base.Invoke();
+            base.Invoke();
             Console.WriteLine("This is DerivedC.Invoke()");
         }
 
