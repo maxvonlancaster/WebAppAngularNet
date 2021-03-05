@@ -15,6 +15,8 @@ namespace ConsoleAppPlayground.Playground
 
             BaseClass cl = new ChildClass();
             Console.WriteLine(cl.GetType().Name); // outputs ChildClass
+
+            //lock (new Triangle()) { }
         }
     }
 

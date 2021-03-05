@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleAppPlayground.Hypothesis
+namespace ConsoleAppPlayground.Playground.Hypothesis
 {
     public class ServiceOne : Service
     {
