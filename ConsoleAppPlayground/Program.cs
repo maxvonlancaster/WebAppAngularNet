@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using ConsoleAppPlayground.Advancement.Db;
 using ConsoleAppPlayground.Features;
 using ConsoleAppPlayground.Js;
 using ConsoleAppPlayground.Ml;
@@ -20,6 +21,7 @@ namespace ConsoleAppPlayground
             service.Main();
 
             var serviceDi = _container.Resolve<IMlService>();
+            var repo = _container.Resolve<IEfRepository>();
             serviceDi.Main();
         }
     }

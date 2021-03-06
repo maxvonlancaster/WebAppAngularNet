@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppPlayground.Advancement.Db
 {
-    public class EfRepository
+    public class EfRepository : IEfRepository
     {
+        private readonly ProductsContext _productsContext;
+
+        public EfRepository(ProductsContext productsContext)
+        {
+            _productsContext = productsContext;
+        }
     }
 }
