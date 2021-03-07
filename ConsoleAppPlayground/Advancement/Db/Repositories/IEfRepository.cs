@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleAppPlayground.Advancement.Db
+namespace ConsoleAppPlayground.Advancement.Db.Repositories
 {
     public interface IEfRepository
     {
+        public void Seed();
     }
 }

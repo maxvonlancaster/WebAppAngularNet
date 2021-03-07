@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using ConsoleAppPlayground.Advancement.Db.Repositories;
 using ConsoleAppPlayground.Advancement.Db;
 using ConsoleAppPlayground.Ml;
 using Microsoft.EntityFrameworkCore;

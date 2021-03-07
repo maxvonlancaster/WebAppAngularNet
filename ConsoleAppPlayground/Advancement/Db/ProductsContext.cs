@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ConsoleAppPlayground.Advancement.Db.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -12,6 +13,12 @@ namespace ConsoleAppPlayground.Advancement.Db
     {
         public ProductsContext([NotNullAttribute] DbContextOptions options) : base(options)
         {
+            Database.EnsureCreated();
         }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
