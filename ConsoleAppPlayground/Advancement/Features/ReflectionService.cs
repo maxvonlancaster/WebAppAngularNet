@@ -42,6 +42,20 @@ namespace ConsoleAppPlayground.Advancement.Features
                 + methodInfo.ReturnType.Name);
             Console.WriteLine("Method is or not static: "
                 + methodInfo.IsStatic);
+
+            MethodInfo[] methods = type.GetMethods();
+            ConstructorInfo[] constructors = type.GetConstructors();
+            EventInfo[] events = type.GetEvents();
+            FieldInfo[] fields = type.GetFields();
+            Type[] interfaces = type.GetInterfaces(); // interfaces that this type implements
+            MemberInfo[] members = type.GetMembers();
+            PropertyInfo[] properties = type.GetProperties();
+
+            Console.WriteLine("Namespace in which type is defined: "
+                + type.Namespace);
+            Console.WriteLine("IsArray: " + type.IsArray 
+                + "IsAbstract: " + type.IsAbstract
+                + "IsEnum: " + type.IsEnum);
         }
 
         public void Usage() 
