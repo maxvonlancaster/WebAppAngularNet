@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using ConsoleAppPlayground.Advancement.Db;
 using ConsoleAppPlayground.Advancement.Db.Repositories;
+using ConsoleAppPlayground.Advancement.Features;
 using ConsoleAppPlayground.Features;
 using ConsoleAppPlayground.Js;
 using ConsoleAppPlayground.Ml;
@@ -18,11 +19,12 @@ namespace ConsoleAppPlayground
         {
             _container = AutofacInit.Init();
 
-            var service = new Reactive();
+
+            var service = new ReflectionService();
             service.Main();
 
             var serviceDi = _container.Resolve<IMlService>();
-            serviceDi.Main();
+            //serviceDi.Main();
             //var repo = _container.Resolve<IEfRepository>();
             //serviceDi.Seed();
         }

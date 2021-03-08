@@ -8,6 +8,11 @@ namespace ConsoleAppPlayground.Playground.Trash
 {
     public class DummyClass
     {
+        public void Main() 
+        {
+            Console.WriteLine(Concatenate(1, "a", "b", "c"));
+        }
+
         public int Add(int x, int y) 
         {
             return x + y;
@@ -26,6 +31,16 @@ namespace ConsoleAppPlayground.Playground.Trash
                 res = res * i;
             }
             return res;
+        }
+
+        public string Concatenate(int i, params string[] s) 
+        {
+            string newString = i.ToString();
+            for (int j = 0; j < s.Length; j++) 
+            {
+                newString += s[j];
+            }
+            return newString;
         }
     }
 }

@@ -13,8 +13,8 @@ namespace ConsoleAppPlayground.Advancement.Db.Entities
         public float Price { get; set; }
         public int Amount { get; set; }
 
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public int CategoryId { get; set; } // foreign key
+        public Category Category { get; set; } // navigational property
 
         public int CompanyId { get; set; }
         public Company Company { get; set; }
