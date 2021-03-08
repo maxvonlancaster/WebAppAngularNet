@@ -43,4 +43,10 @@
     <Folder Include="Web\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Ml\iris.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -8,6 +8,7 @@ namespace ConsoleAppPlayground.Ml
 {
     public interface IMlService
     {
+        void IrisTesting();
         void Main();
     }
 }

@@ -21,9 +21,10 @@ namespace ConsoleAppPlayground
             var service = new Reactive();
             service.Main();
 
-            var serviceDi = _container.Resolve<IEfRepository>();
-            var repo = _container.Resolve<IEfRepository>();
-            serviceDi.Seed();
+            var serviceDi = _container.Resolve<IMlService>();
+            serviceDi.Main();
+            //var repo = _container.Resolve<IEfRepository>();
+            //serviceDi.Seed();
         }
     }
 }
