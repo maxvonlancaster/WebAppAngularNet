@@ -20,7 +20,6 @@ namespace ConsoleAppPlayground
         {
             _container = AutofacInit.Init();
 
-
             var service = new ReflectionService();
             service.Main();
 

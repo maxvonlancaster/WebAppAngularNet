@@ -13,7 +13,7 @@ namespace ConsoleAppPlayground.Advancement.Features
         {
             //Basics();
             Usage();
-            DynamicLoad();
+            LateBinding();
             AttributeUsage();
         }
 
@@ -74,6 +74,21 @@ namespace ConsoleAppPlayground.Advancement.Features
                 Console.WriteLine(t.Name);
             }
             assembly = Assembly.Load("Microsoft.EntityFrameworkCore");
+        }
+
+        public void LateBinding() 
+        {
+            // Late binding allows to create objects of type and use while app execution
+            // Less safe as it is outside compile time       
+            Assembly assembly = Assembly.LoadFrom("ConsoleAppPlayground.dll");
+            Type type = assembly.GetType("ConsoleAppPlayground.Advancement.Features.SomeClass", true, true);
+            // create instance of the class:
+            object obj = System.Activator.CreateInstance(type);
+            // Get method Add:
+            MethodInfo methodInfo = type.GetMethod("Add");
+            // Call method, give it params, and get the result
+            object result = methodInfo.Invoke(obj, new object[] { 2, 4 });
+            Console.WriteLine(result);
         }
 
         public void AttributeUsage() 
