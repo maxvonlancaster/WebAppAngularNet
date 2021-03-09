@@ -26,6 +26,7 @@ namespace ConsoleAppPlayground.Playground.Trash
             {
                 triangles.Add(new Triangle());
             }
+            triangles.Add(new Triangle(1, 2, 3));
         }
 
     }
@@ -39,6 +40,26 @@ namespace ConsoleAppPlayground.Playground.Trash
         protected internal int X { get; set; } // either this assembly or types, derived
         private protected int Y { get; set; } // either this assembly or types, derived in this assembly 
 
+        private string fullName; // field
+        public string FullName // Property -> methods of access, give easy acces to fields 
+        {
+            get 
+            {
+                return fullName;
+            }
+            private set // we can use access modifiers to separate blocks 
+            {           // U can set modifiers for set or get, if both get and set present,
+                fullName = value; // only get or set ca have access mod-s
+            } // has to be more restricting then the access m-r of the property
+        }
+
+        public string AnotherName { get; set; } = "name"; // autoproperty -> can be initialized
+        // advantege -> you can at any point extend it into regular prop, add logic
+        // fields are created by compiler automatically 
+        //public string AutoName { set; } -> compile error -> autoproperty can not be only set
+        public string NewName { private set; get; } // autoprop with access m-r
+        public string NewNewName { get; } = "Tom"; // field will be automatically readonly, so can be set in construct
+        public string NName => Name;// equivalent to: public string NName { get { return Name; } }
     }
 
     public class ChildStuff : Stuff
