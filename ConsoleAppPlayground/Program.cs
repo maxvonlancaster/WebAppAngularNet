@@ -21,7 +21,7 @@ namespace ConsoleAppPlayground
             _container = AutofacInit.Init();
 
 
-            var service = new NetworkingService();
+            var service = new ReflectionService();
             service.Main();
 
             var serviceDi = _container.Resolve<IMlService>();

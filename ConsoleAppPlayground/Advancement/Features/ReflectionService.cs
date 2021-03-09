@@ -11,7 +11,7 @@ namespace ConsoleAppPlayground.Advancement.Features
     {
         public void Main() 
         {
-            Basics();
+            //Basics();
             Usage();
             DynamicLoad();
             AttributeUsage();
@@ -65,7 +65,15 @@ namespace ConsoleAppPlayground.Advancement.Features
 
         public void DynamicLoad() 
         {
-        
+            // in order to dynamically load assembly into app: use this:
+            Assembly assembly = Assembly.LoadFrom("Microsoft.EntityFrameworkCore.dll");
+            Console.WriteLine(assembly.FullName);
+            Type[] types = assembly.GetTypes(); // get all types from this assembly 
+            foreach (var t in types) 
+            {
+                Console.WriteLine(t.Name);
+            }
+            assembly = Assembly.Load("Microsoft.EntityFrameworkCore");
         }
 
         public void AttributeUsage() 
