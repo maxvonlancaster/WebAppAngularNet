@@ -34,6 +34,6 @@ namespace ConsoleAppPlayground
         // 2. Add visual repres 
         // 3. Unit tests 
         // 4. Integration tests 
-        // 5. 
+        // 5. Add new features 
     }
 }
