@@ -28,5 +28,12 @@ namespace ConsoleAppPlayground
             //var repo = _container.Resolve<IEfRepository>();
             //serviceDi.Seed();
         }
+
+        // TODO:
+        // 1. Ado net repository -> try
+        // 2. Add visual repres 
+        // 3. Unit tests 
+        // 4. Integration tests 
+        // 5. 
     }
 }
