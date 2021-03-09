@@ -2,6 +2,7 @@
 using ConsoleAppPlayground.Advancement.Db;
 using ConsoleAppPlayground.Advancement.Db.Repositories;
 using ConsoleAppPlayground.Advancement.Features;
+using ConsoleAppPlayground.Advancement.Hacks;
 using ConsoleAppPlayground.Features;
 using ConsoleAppPlayground.Js;
 using ConsoleAppPlayground.Ml;
@@ -20,7 +21,7 @@ namespace ConsoleAppPlayground
             _container = AutofacInit.Init();
 
 
-            var service = new ReflectionService();
+            var service = new NetworkingService();
             service.Main();
 
             var serviceDi = _container.Resolve<IMlService>();

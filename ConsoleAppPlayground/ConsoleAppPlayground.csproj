@@ -22,6 +22,7 @@
     <PackageReference Include="FSharp.Core" Version="4.0.0.1" />
     <PackageReference Include="IronJS" Version="0.2.0.1" />
     <PackageReference Include="IronJS.Core" Version="0.2.0.1" />
+    <PackageReference Include="managedwifi" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3">
