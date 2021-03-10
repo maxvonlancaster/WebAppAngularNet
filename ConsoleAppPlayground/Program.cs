@@ -37,5 +37,10 @@ namespace ConsoleAppPlayground
         // 4. Integration tests 
         // 5. Add new features 
         // 6. Work with enum 
+
+        // ALSO IDEAS TO WORK:
+        // 1. Xamarin app
+        // 2. Math app on react (calculate matrixes ets.)
+        // 3. Learn C++ and F# 
     }
 }
