@@ -9,8 +9,8 @@ namespace ConsoleAppPlayground.Advancement.Features
     public class TypesService
     {
         public void Main()
-        { 
-        
+        {
+            MethodOverloading();
         }
 
         public void MethodOverloading() 

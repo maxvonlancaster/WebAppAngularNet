@@ -47,6 +47,11 @@ namespace ConsoleAppPlayground
                 return new ProductsContext(opt.Options);
             }).InstancePerLifetimeScope();
 
+            builder.Register(c => 
+            {
+                return new AdoNetRepository(configuration.GetConnectionString("Products"));
+            }).InstancePerLifetimeScope();
+
             builder.Populate(services);
 
             return builder.Build();

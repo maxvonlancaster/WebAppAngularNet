@@ -20,10 +20,11 @@ namespace ConsoleAppPlayground
         {
             _container = AutofacInit.Init();
 
-            var service = new ReflectionService();
+            var service = new TypesService();
             service.Main();
 
-            var serviceDi = _container.Resolve<IMlService>();
+            var serviceDi = _container.Resolve<AdoNetRepository>();
+            serviceDi.Main();
             //serviceDi.Main();
             //var repo = _container.Resolve<IEfRepository>();
             //serviceDi.Seed();
