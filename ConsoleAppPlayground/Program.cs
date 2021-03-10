@@ -36,5 +36,6 @@ namespace ConsoleAppPlayground
         // 3. Unit tests 
         // 4. Integration tests 
         // 5. Add new features 
+        // 6. Work with enum 
     }
 }

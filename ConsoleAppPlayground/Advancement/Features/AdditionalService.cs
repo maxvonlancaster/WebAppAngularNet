@@ -9,5 +9,11 @@ namespace ConsoleAppPlayground.Advancement.Features
     // Alll else goes here
     public class AdditionalService
     {
+        public void Main() 
+        {
+        
+        }
     }
+
+    
 }

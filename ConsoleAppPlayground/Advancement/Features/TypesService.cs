@@ -11,6 +11,7 @@ namespace ConsoleAppPlayground.Advancement.Features
         public void Main()
         {
             MethodOverloading();
+            EnumUsage();
         }
 
         public void MethodOverloading() 
@@ -20,6 +21,19 @@ namespace ConsoleAppPlayground.Advancement.Features
             newClass.Add(1, 2, 3);
             newClass.Add("1", "2");
             // method overloading -> when need to use one and the same param with different set of params
+        }
+
+        public void EnumUsage() 
+        {
+            Entities entity = Entities.Company;
+            Entities newEntity = GetEnum(entity);
+            string name = newEntity.ToString();
+            Console.WriteLine(name); // Company
+        }
+
+        public Entities GetEnum(Entities entity) 
+        {
+            return (Entities)((int)entity + 1);
         }
     }
 
@@ -33,5 +47,22 @@ namespace ConsoleAppPlayground.Advancement.Features
         // different return type is also error
         public int Add(int a, ref int b) => a + b; // can differ in modifiers as well
 
+    }
+
+    public enum Entities
+    {
+        // by default - int and starts from 0
+        User = 1, // here sytarting from 1, then 2
+        Product,
+        Company,
+        Category
+    }
+
+    public enum NewEnum : byte // can set to different type
+    {
+        Stuff = 1,
+        Qwert = 2,
+        Ert = 2, // can have the same value
+        Er = Stuff
     }
 }
