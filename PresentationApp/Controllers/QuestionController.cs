@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PresentationApp.Controllers
 {
-    public class AccountController : ControllerBase
+    public class QuestionController : ControllerBase
     {
     }
 }

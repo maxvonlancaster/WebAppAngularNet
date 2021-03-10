@@ -3,9 +3,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PresentationApp.DAL;
+using PresentationApp.DAL.Entities;
+using PresentationApp.DAL.Services;
 
 namespace PresentationApp
 {
@@ -28,6 +32,15 @@ namespace PresentationApp
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddDbContext<PresentationContext>(options 
+                => options.UseSqlServer(Configuration.GetConnectionString("PresentationsReact")));
+
+            services.AddScoped<IService<Presentation>, PresentationService>();
+            services.AddScoped<IService<Question>, QuestionService>();
+            services.AddScoped<IService<Subject>, SubjectService>();
+            services.AddScoped<IService<User>, UserService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
