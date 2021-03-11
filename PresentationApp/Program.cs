@@ -23,4 +23,14 @@ namespace PresentationApp
                     webBuilder.UseStartup<Startup>();
                 });
     }
+
+    // TODO: 
+    // 1. UI 
+    // 2. Streaming 
+    // 3. Call to backend on all controllers 
+    // 4. Deployement 
+    // 5. Login and register 
+    // 6. Telegram api 
+    // 7. 
+    // 8. 
 }
