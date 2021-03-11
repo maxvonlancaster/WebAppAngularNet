@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PresentationApp.DAL;
 using PresentationApp.DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PresentationApp.DAL.Services
+namespace PresentationApp.BLL.Services
 {
     public class PresentationService : IService<Presentation>
     {

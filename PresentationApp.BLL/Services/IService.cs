@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PresentationApp.DAL.Services
+namespace PresentationApp.BLL.Services
 {
     public interface IService<T> where T : IEntity
     {

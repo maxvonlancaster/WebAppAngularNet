@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PresentationApp.BLL.Services;
 using PresentationApp.DAL;
 using PresentationApp.DAL.Entities;
-using PresentationApp.DAL.Services;
 
 namespace PresentationApp
 {

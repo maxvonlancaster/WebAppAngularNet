@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PresentationApp.DAL.Common
+namespace PresentationApp.BLL.Common
 {
     public enum EntityType
     {
