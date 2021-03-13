@@ -46,6 +46,27 @@ void variables_and_types()
 
     auto number = 5; // compiler desides type itself
     //auto numb; -> compiler error - can not deduce type
+
+    // implicit type conversion:
+    int code = 'g';
+    char letter = 103;
+    std::cout << letter << " is ancii code " << code << "\n";
+    // how type conversions work: 
+    // put anything into bool -> it will be true unless you put 0:
+    bool ba = 1; // true
+    bool bb = "gg"; // true
+    bool bc = 0; // false
+    // putting bool into string ot int:
+    int ib = true; // 1
+    // outside of range - overflow:
+    unsigned char uco = -5; // 251
+    // safe casting - no loss of info - from types with less info to more info
+    float fd = 3.4;
+    double df = fd;
+    // unsafe casting - loss of info - from types with more info to less 
+    char lettr = 300;
+    std::cout << "unsafe casting: " + lettr;
+
 }
 
 int main()
