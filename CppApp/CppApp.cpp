@@ -78,14 +78,49 @@ void constants_and_operations()
     int a = 1;
     const int c = a;
 
+    // modulus operation:
+    int n = 5;
+    int m = 33;
+    int d = m % n;
+    std::cout << "33 mod 5: " << d << "\n";
 
+    // prefix increment:
+    int pia = 8;
+    int pib = ++pia;
+    std::cout << "prefix increment a: " << pia << "\n"; // 9
+    std::cout << "prefix increment b: " << pib << "\n"; // 9
+
+    // postfix increment:
+    int poia = 8;
+    int poib = poia++;
+    std::cout << "postfix increment a: " << poia << "\n"; // 9
+    std::cout << "postfix increment b: " << poib << "\n"; // 8
+
+    // prefix decrement:
+    int pda = 8;
+    int pdb = --pda;
+    std::cout << "prefix decrement a: " << pda << "\n"; // 7
+    std::cout << "prefix decrement b: " << pdb << "\n"; // 7
+
+    // postfix decrement:
+    int poda = 8;
+    int podb = poda--;
+    std::cout << "postfix decrement a: " << poda << "\n"; // 7
+    std::cout << "postfix decrement b: " << podb << "\n"; // 8
+
+    // priority of operations (which are made first):
+    // 1. increment decrement;
+    // 2. *, / , %
+    // 3. +, -
+    // also can put operations in brackets to be done first 
 }
 
 int main()
 {
     std::cout << "Hello World!\n";
-    variables_and_types(); // This is called forward declaration: compiler needs to know function prototype 
+    // variables_and_types(); // This is called forward declaration: compiler needs to know function prototype 
     // when function call is compiled.
+    constants_and_operations();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
