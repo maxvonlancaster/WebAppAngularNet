@@ -66,6 +66,18 @@ void variables_and_types()
     // unsafe casting - loss of info - from types with more info to less 
     char lettr = 300;
     std::cout << "unsafe casting: " + lettr;
+}
+
+void constants_and_operations() 
+{
+    // constants -> set one time and can not be changed:
+    const int i = 1;
+    //i = 22; -> expression must be a modifiable value
+    // const must always be initialized:
+    //const int x; -> requires intialization;
+    int a = 1;
+    const int c = a;
+
 
 }
 
