@@ -115,6 +115,20 @@ void constants_and_operations()
     // also can put operations in brackets to be done first 
 }
 
+void conditionals_and_bit_operations() 
+{
+    
+}
+
+void assignement_console_using() 
+{
+
+}
+
+
+
+
+
 int main()
 {
     std::cout << "Hello World!\n";
