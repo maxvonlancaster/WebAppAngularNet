@@ -14,7 +14,7 @@ namespace ConsoleAppPlayground.Advancement.Features
     {
         public void Main() 
         {
-        
+            ArrayListUsage();
         }
 
         // most are from these namespaces:
@@ -44,13 +44,13 @@ namespace ConsoleAppPlayground.Advancement.Features
                 ArrayList newArrayList = arrayList.GetRange(0, 3);
             }
             int index = arrayList.IndexOf('a');
-            arrayList.Sort();
+            //arrayList.Sort(); -> will throw error - different types
             arrayList.Clear(); // delete all elements from arraylist
         }
 
         public void ListUsage() 
         {
-        
+            List<int> listInt = new List<int>() { 1, 2, 0 };
         }
 
         public void LinkedListUsage() 
