@@ -51,6 +51,15 @@ namespace ConsoleAppPlayground.Advancement.Features
         public void ListUsage() 
         {
             List<int> listInt = new List<int>() { 1, 2, 0 };
+            listInt.Add(3);
+            listInt.AddRange(new int[] { 4, 5 } );
+            listInt.AddRange(new [] { 6, 7});
+            listInt.AddRange(new List<int>() { 8, 9});
+            int index = listInt.IndexOf(5);
+            bool isSuccesfulRemoval = listInt.Remove(3);
+            listInt.RemoveAt(2);
+            listInt.Sort();
+            index = listInt.BinarySearch(5);
         }
 
         public void LinkedListUsage() 
