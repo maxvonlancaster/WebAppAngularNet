@@ -4,6 +4,7 @@
 #include <iostream>
 #include <math.h>
 #include <typeinfo>
+#include "NewClass.h"
 
 
 int k;
@@ -135,6 +136,8 @@ int main()
     // variables_and_types(); // This is called forward declaration: compiler needs to know function prototype 
     // when function call is compiled.
     constants_and_operations();
+    NewClass newClass;
+    newClass.main();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
