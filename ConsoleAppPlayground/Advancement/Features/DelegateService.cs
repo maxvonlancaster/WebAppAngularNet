@@ -11,7 +11,43 @@ namespace ConsoleAppPlayground.Advancement.Features
     {
         public void Main() 
         {
+
+        }
+
+        public void Delegates() 
+        { 
         
         }
+
+        public void DelegatesUsage() 
+        { 
+        
+        }
+
+        public void AnonMethods() 
+        { 
+        
+        }
+
+        public void Lambdas() 
+        { 
+        
+        }
+
+        public void Events() 
+        { 
+        
+        }
+
+        public void Coverity() 
+        { 
+        
+        }
+
+        public void DelegatesFuncActionPred() 
+        { 
+        
+        }
+
     }
 }
