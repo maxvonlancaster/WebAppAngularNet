@@ -31,7 +31,7 @@ namespace ConsoleAppPlayground
         }
 
         // TODO:
-        // 1. Ado net repository -> try
+        // 1. Ado net repository -> try 
         // 2. Add visual repres 
         // 3. Unit tests 
         // 4. Integration tests 
@@ -39,8 +39,9 @@ namespace ConsoleAppPlayground
         // 6. Work with enum 
 
         // ALSO IDEAS TO WORK:
-        // 1. Xamarin app
-        // 2. Math app on react (calculate matrixes ets.)
+        // 1. Xamarin app 
+        // 2. Math app on react (calculate matrixes ets.) 
         // 3. Learn C++ and F# 
+        // 4. Planning poker for telegram 
     }
 }
