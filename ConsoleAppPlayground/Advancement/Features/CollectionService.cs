@@ -217,6 +217,16 @@ namespace ConsoleAppPlayground.Advancement.Features
             {
                 Console.WriteLine(i);
             }
+
+            Months months = new Months();
+            foreach (string d in months) 
+            {
+                Console.WriteLine(d);
+            }
+            foreach (string s in months.GetMonths(5)) // named iterator
+            {
+                Console.WriteLine(s);
+            }
         }
 
         public IEnumerable<int> Powers(int number, int exponent) 
@@ -231,6 +241,11 @@ namespace ConsoleAppPlayground.Advancement.Features
 
     }
 
+
+    /// <summary>
+    /// Additional classes
+    /// </summary>
+    /// 
     public class Week : IEnumerable<string>
     {
         string[] days = { "Monday", "Tu", "W", "Th", "F", "Sa", "Su" };
@@ -303,6 +318,41 @@ namespace ConsoleAppPlayground.Advancement.Features
             for (int i = 0; i < 10; i++)
             {
                 yield return Math.Pow(i, 3);
+            }
+        }
+    }
+
+    class Months : IEnumerable<string>
+    {
+        string[] months = { "Jan", "Feb", "Mar"};
+        public IEnumerator<string> GetEnumerator()
+        {
+            for (int i = 0; i < months.Length; i++) 
+            {
+                yield return months[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            for (int i = 0; i < months.Length; i++)
+            {
+                yield return months[i];
+            }
+        }
+
+        public IEnumerable<string> GetMonths(int max) 
+        {
+            for (int i = 0; i < max; i++) 
+            {
+                if (i == months.Length)
+                {
+                    yield break;
+                }
+                else 
+                {
+                    yield return months[i];
+                }
             }
         }
     }
