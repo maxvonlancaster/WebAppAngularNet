@@ -86,30 +86,47 @@ namespace ConsoleAppPlayground.Advancement.Features
         
         }
 
+
         public void AnonMethods() 
         { 
         
         }
+
 
         public void Lambdas() 
         { 
         
         }
 
+
         public void Events() 
         { 
         
         }
+
 
         public void Coverity() 
         { 
         
         }
 
+
         public void DelegatesFuncActionPred() 
-        { 
-        
+        {
+            // Action - takes parameter and returns void
+            Action<string> action = (string s) => { Console.WriteLine(s); };
+            action("Hello");
+            Action<int, int> action1 = (int i, int j) => { Console.WriteLine(i + j); };
+
+            // Predicate - takes parameter and returns bool
+            Predicate<int> isPositive = delegate (int i) { return i > 0; };
+
+            // Func - returns last parameter
+            Func<int, int, string> func = AddToStr;
+            Console.WriteLine(AddToStr(1, 2));
+
         }
+        private string AddToStr(int i, int j) { return (i + j).ToString(); }
 
     }
 }
