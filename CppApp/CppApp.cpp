@@ -148,14 +148,49 @@ void assignement_console_using()
     i %= 6; // 3 (modulus 16 by 6)
 
     // library iostream gives console usage, istrem - input in console, ostream - output
+    std::cout << "hello!"; // operand that returns ostream, 
+    std::cout << "hello!" << std::endl;// end the buffer and new line
+    std::cout << "your age: ";
+    int age;
+    std::cin >> age;// left side is iostream, right- object that receives data, we can also chain it:
+    std::cin >> a >> b >> c;
 
-
-
+    // cout and cin are defined is the namespace std, :: is scope operator
+    // using help use without scope operator:
+    //using std::cout;
+    // ...
+    //cout << "helo!";
 }
 
 void if_else_switch() 
 {
+    int i = 60;
+    if (i < 50) 
+    {
+    
+    }
+    else if (50 <= i < 60) 
+    {
+    
+    }
+    else 
+    {
+    
+    }
 
+    i = 2;
+    switch (i) 
+    {
+    case 1:
+        std::cout << "1\n";
+        break;
+    case 2:
+        std::cout << "2\n";
+        break;
+    default:
+        std::cout << "???\n";
+    }
+    int j = i == 2 ? 1 : 0; // ternary operator;
 }
 
 void cycles() 
