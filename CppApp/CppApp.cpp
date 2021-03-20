@@ -5,6 +5,7 @@
 #include <math.h>
 #include <typeinfo>
 #include "NewClass.h"
+#include <string>
 
 
 int k;
@@ -195,22 +196,94 @@ void if_else_switch()
 
 void cycles() 
 {
+    int i = 0;
+    while (i < 10) 
+    {
+        std::cout << i << "\n";
+    }
 
+    for (int j = 0; j < 10; j++) 
+    {
+        std::cout << j << "\n";
+    }
+
+    do 
+    {
+        std::cout << "this will be executed at least once always \n";
+    } while (1 < 0);
+
+    int k = 0;
+    for (;;) 
+    {
+        k++;
+        if (k % 2 == 0)
+            std::cout << k << "\n";
+        else
+            continue; // to get to another iteration of the cycle
+        if (k > 10) break; // to stop cycle alltogether
+    }
 }
 
 void pointers() 
 {
+    // pointers - point to object;
+    int n = 1;
+    int &m = n; // the same type
+    std::cout << m << "\n"; // 1
+    n = 2;
+    std::cout << m << "\n"; // 2
 
+    const int i = 5;
+    //int &j = i; -> error since it is const
+
+    int a = 10;
+    const int &b = a;
+    a = 5;
+    std::cout << b << "\n"; // 5; 
 }
 
 void arrays() 
 {
-
+    int numbers[4] = {1,2,3,4};
+    //int numbers[4] = { 1,2,3,4,5 }; -> error - too many intializor values;
+    int numbersBig[] = { 1,2,3,4,5 }; // array size can be taken from the amount of initializors
+    char letters[] = { 'a', 'b' };
+    char word[] = "hello";
+    //int num1[] = numbers; -> error - can not assign one array to another;
+    const int c = 4;
+    int num2[c] = {}; // via constant
+    std::cout << numbers[2] << "\n"; // 3
+    for (int i : numbers)
+        std::cout << i << "\n"; // going through array;
+    for(auto i : numbers)
+        std::cout << i << "\n"; // can use auto if type of elem in array is unknown;
+    int matrix[3][3] = { {1,2,3},{},{0,1} };
+    std::cout << matrix[0][1] << "\n";
 }
 
 void strings() 
 {
+    std::string s = "string";
+    // include <string> at top to import 
+    std::string s2("welcome");      // welcome
+    std::string s3(5, 'h');     // hhhhh
+    std::string s4 = s3;            // hello
+    std::string s5 = s + s2; //stringwelcome -> tsring concatenation;
+    // string comparison:
+    bool b = s5 == s;
+    b = s5 < s; // comparison depending on register;
+    int size = s.size(); // 6
+    char c = s[1];
+    s[1] = 'p';
+    std::cout << s << "\n"; // spring
 
+    char letters[] = { 'h', 'e', 'l', 'l', 'o', '\0' }; // ending in "\0" can be used as a string
+    std::cout << letters << std::endl;
+
+    std::string name;
+    std::cout << "Input your name: ";
+    getline(std::cin, name);
+    std::cout << "Your name: " << name << std::endl;
 }
 
 
