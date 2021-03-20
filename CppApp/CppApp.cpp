@@ -118,14 +118,65 @@ void constants_and_operations()
 
 void conditionals_and_bit_operations() 
 {
-    
+    bool b = 10 > 5 && 7 < 11; // and, true
+    bool b1 = b || false; // or, true
+    bool b2 = !b1; // not, false
+    std::cout << "bool: " << b2 << "\n";
+
+    // bit operations performed on separate bits, in integer numbers;
+    int a = 2 << 2; // 10 two bits to left = 1000 - 8
+    int c = 16 >> 3; // 1000 three bits to right = 10 - 2
+    // operations on every digit:
+    int i = 5 | 2;          // 101 | 010 = 111  - 7
+    int j = 6 & 2;          // 110 & 010 = 10  - 2
+    int k = 5 ^ 2;          // 101 ^ 010 = 111 - 7
+    int m = ~9;             // -10
 }
 
 void assignement_console_using() 
 {
+    int a, b, c;
+    a = b = c = 34; // multiple assignement 
+    // assignement goes from right to left; has the least priority - done after all else
+    int i = 10;
+    i += 5; // 15
+    i -= 3; // 12
+    i *= 2; // 24
+    i /= 6; // 4
+    i <<= 4; // 64
+    i >>= 2; // 16
+    i %= 6; // 3 (modulus 16 by 6)
+
+    // library iostream gives console usage, istrem - input in console, ostream - output
+
+
 
 }
 
+void if_else_switch() 
+{
+
+}
+
+void cycles() 
+{
+
+}
+
+void pointers() 
+{
+
+}
+
+void arrays() 
+{
+
+}
+
+void strings() 
+{
+
+}
 
 
 
