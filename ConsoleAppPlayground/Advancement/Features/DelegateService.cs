@@ -87,9 +87,31 @@ namespace ConsoleAppPlayground.Advancement.Features
         }
 
 
+        delegate void MessageNew(string s);
+        delegate int AddNew(int x, int y);
+        private void Messaging(string s, MessageNew del) { del(s); }
         public void AnonMethods() 
-        { 
-        
+        {
+            // anon methods used for creation of delegate exemplars
+            MessageNew handler = delegate (string s)
+            {
+                Console.WriteLine(s);
+            };
+
+            // has access to outside var-s
+            int i = 5;
+            AddNew add = delegate (int x, int y)
+            {
+                return x + y + i;
+            };
+
+            //var del = delegate (string s) -> can not assign delegate to implicitly typed variable - ERROR
+            //{
+            //    Console.WriteLine(s);
+            //};
+
+            // anon method can be passed as a param:
+            Messaging("hello", delegate(string s) { Console.WriteLine(s); });
         }
 
 
