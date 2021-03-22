@@ -117,7 +117,10 @@ namespace ConsoleAppPlayground.Advancement.Features
 
         public void Lambdas() 
         { 
-        
+            // lambda - simplified writting of anon method;
+            // 
+
+
         }
 
 
