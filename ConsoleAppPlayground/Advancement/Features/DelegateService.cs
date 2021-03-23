@@ -11,7 +11,7 @@ namespace ConsoleAppPlayground.Advancement.Features
     {
         public void Main() 
         {
-
+            Events();
         }
 
         delegate int Oper(int x, int y); // keyword, and signature
@@ -169,15 +169,35 @@ namespace ConsoleAppPlayground.Advancement.Features
             Notify("event"); // we can call an event
             Notify?.Invoke("invoke"); // event can be null if no handler defined 
             Notify -= Show_MN; // can be removed
+            Notify -= Show_MNN; // will not throw any errors :)
         }
         private void Show_MN(string s) { Console.WriteLine(s); }
+        private void Show_MNN(string s) { Console.WriteLine(s); }
+
 
 
 
         public void Coverity() 
-        { 
-        
+        {
+            // coveraety - returning from method an object, whose type is dervative from the type, returned from del;
+            PersonFactory personFactory;
+            personFactory = NewClient;
+            Person person = personFactory("Tom"); // del can point to method that returns derived type - coveriaty
+
+            // contrvariaety - possibility to pass into method object that is more universal in relation to the type
+            // of the delegate param
+            GetInfo getInfo;
+            getInfo = GetPersonInfo;
+            Client cl = new Client() { Name = "Jack"};
+            string s = getInfo(cl);
         }
+        public class Person { public string Name { get; set; } }
+        public class Client : Person { }
+        delegate Person PersonFactory(string name);
+        private Client NewClient(string s) { return new Client() { Name = s}; }
+        delegate string GetInfo(Client client);
+        private string GetPersonInfo(Person person) { return person.Name; }
+
 
 
         public void DelegatesFuncActionPred() 

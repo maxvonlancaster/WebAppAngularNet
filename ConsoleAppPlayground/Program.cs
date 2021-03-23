@@ -20,7 +20,7 @@ namespace ConsoleAppPlayground
         {
             _container = AutofacInit.Init();
 
-            var service = new CollectionService();
+            var service = new DelegateService();
             service.Main();
 
             var serviceDi = _container.Resolve<AdoNetRepository>();
