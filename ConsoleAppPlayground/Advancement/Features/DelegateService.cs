@@ -115,19 +115,63 @@ namespace ConsoleAppPlayground.Advancement.Features
         }
 
 
+        delegate int OperLam(int x, int y);
+        delegate int Squere(int x);
+        delegate void HelloLam();
+        delegate void Handler(ref int n);
+        delegate int ChangeNum(int i);
         public void Lambdas() 
-        { 
+        {
             // lambda - simplified writting of anon method;
             // 
+            OperLam operLam = (x, y) => x + y;
+            OperLam operLam1 = (x, y) => { Console.WriteLine(""); return x + y; };
+            //var lam = (x, y) => x + y; -> cannot assign lambda to implicitly typed variable
+            Squere squere = x => x * x; // brackets in parameters can be ommitted if one param;
+            HelloLam hello = () => Console.WriteLine("hello"); // empty brackets if no params;
+            Handler handler = (ref int i) => i = i * 2; // type has to be put in brackets if ref ot out modifiers
+            HelloLam hello1 = () => Show_M(); // lambdas can make other methods
 
-
+            // lmbdas can be passed as params to methods:
+            var nums = ChangeNumbers(new List<int>() { 1, 2, 3, 4 }, i => i + 10);
+        }
+        private static void Show_M() { Console.WriteLine("Show_M"); }
+        private IEnumerable<int> ChangeNumbers(List<int> list, ChangeNum del) 
+        {
+            foreach (int i in list) { yield return del(i); }
         }
 
 
+
+        public delegate void AccHandler(string messge);
+        event AccHandler Notify;
+        private event AccHandler _someEv;
+        public event AccHandler SomeEv 
+        {
+            add 
+            {
+                _someEv += value; // with access modifiers add-remove we can control adding and deletion of hndlers
+                Console.WriteLine($"{value.Method.Name} added");
+            }
+            remove 
+            {
+                _someEv -= value;
+                Console.WriteLine($"{value.Method.Name} removed");
+            }
+        }
         public void Events() 
-        { 
-        
+        {
+            // events signal to the system tht something happened;
+            // keyword event nd type of delegate that represents the event:
+            AccHandler accHandler = s => Console.WriteLine(s);
+            Notify += accHandler; // adding event handler to event
+            Notify += Show_MN;
+            Notify("event"); // we can call an event
+            Notify?.Invoke("invoke"); // event can be null if no handler defined 
+            Notify -= Show_MN; // can be removed
         }
+        private void Show_MN(string s) { Console.WriteLine(s); }
+
 
 
         public void Coverity() 
@@ -141,6 +185,7 @@ namespace ConsoleAppPlayground.Advancement.Features
             // Action - takes parameter and returns void
             Action<string> action = (string s) => { Console.WriteLine(s); };
             action("Hello");
+            action = (s) => { Console.WriteLine(s); };
             Action<int, int> action1 = (int i, int j) => { Console.WriteLine(i + j); };
 
             // Predicate - takes parameter and returns bool
