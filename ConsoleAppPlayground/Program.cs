@@ -3,6 +3,7 @@ using ConsoleAppPlayground.Advancement.Db;
 using ConsoleAppPlayground.Advancement.Db.Repositories;
 using ConsoleAppPlayground.Advancement.Features;
 using ConsoleAppPlayground.Advancement.Hacks;
+using ConsoleAppPlayground.Advancement.Playground;
 using ConsoleAppPlayground.Features;
 using ConsoleAppPlayground.Js;
 using ConsoleAppPlayground.Ml;
@@ -20,7 +21,7 @@ namespace ConsoleAppPlayground
         {
             _container = AutofacInit.Init();
 
-            var service = new DelegateService();
+            var service = new MethodsRefs();
             service.Main();
 
             var serviceDi = _container.Resolve<AdoNetRepository>();

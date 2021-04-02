@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PresentationApp.BLL.Services
 {
-    public class UserService : IService<User>
+    public class UserService : IUserService
     {
         private PresentationContext _presentationContext;
 
@@ -42,6 +42,18 @@ namespace PresentationApp.BLL.Services
                 .Skip(skip)
                 .Take(take)
                 .ToListAsync();
+        }
+
+        public async Task<User> Login(string userName, string password)
+        {
+            return await _presentationContext.Users
+                .FirstOrDefaultAsync(p => p.UserName == userName && p.Password == password);
+        }
+
+        public async Task<User> GetByUserName(string userName)
+        {
+            return await _presentationContext.Users
+                .FirstOrDefaultAsync(p => p.UserName == userName);
         }
 
         public async Task Update(User entity)
