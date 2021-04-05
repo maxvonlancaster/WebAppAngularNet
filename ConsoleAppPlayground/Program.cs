@@ -21,7 +21,7 @@ namespace ConsoleAppPlayground
         {
             _container = AutofacInit.Init();
 
-            var service = new MethodsRefs();
+            var service = new ExceptionPlayground();
             service.Main();
 
             var serviceDi = _container.Resolve<AdoNetRepository>();
