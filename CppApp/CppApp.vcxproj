@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CppApp.cpp" />
+    <ClCompile Include="Functions.cpp" />
     <ClCompile Include="NewClass.cpp" />
     <ClCompile Include="Services\Features.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="NewClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

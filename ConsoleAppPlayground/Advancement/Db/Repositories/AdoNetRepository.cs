@@ -37,5 +37,15 @@ namespace ConsoleAppPlayground.Advancement.Db.Repositories
                 Console.WriteLine("\tWorkstationld: {0}", sqlConnection.WorkstationId);
             }
         }
+
+        public void TableCreationAndSeeding() { }
+
+        public void Joins() { }
+
+        public void Having() { }
+
+
+
+        public void DropTables() { }
     }
 }
